@@ -20,7 +20,7 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
   selectedLanguageFlag = "./assets/img/flags/us.png";
   toggleClass = "ft-maximize";
   placement = "bottom-right";
-  logoUrl = 'assets/img/logo.png';
+  logoUrl = 'assets/img/logo.jpg';
   menuPosition = 'Side';
   isSmallScreen = false;
   protected innerWidth: any;

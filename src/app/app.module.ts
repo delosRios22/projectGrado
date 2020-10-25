@@ -1,9 +1,9 @@
 import { NgModule } from "@angular/core";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-
+import { CommonModule } from '@angular/common';
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { ToastrModule } from "ngx-toastr";
 import { AgmCoreModule } from "@agm/core";
@@ -31,6 +31,9 @@ import { FullLayoutComponent } from "./layouts/full/full-layout.component";
 import { AuthService } from "./shared/auth/auth.service";
 import { AuthGuard } from "./shared/auth/auth-guard.service";
 import { WINDOW_PROVIDERS } from './shared/services/window.service';
+import { DashboardModule } from './dashboard/dashboard.module';
+import { AddDevicesComponent } from './devices/add-devices/add-devices.component';
+import { ListDevicesComponent } from './devices/list-devices/list-devices.component';
 
 var firebaseConfig = {
   apiKey: "YOUR_API_KEY", //YOUR_API_KEY
@@ -54,8 +57,9 @@ export function createTranslateLoader(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [AppComponent, FullLayoutComponent, ContentLayoutComponent],
+  declarations: [AppComponent, FullLayoutComponent, ContentLayoutComponent, AddDevicesComponent, ListDevicesComponent],
   imports: [
+    CommonModule,
     BrowserAnimationsModule,
     StoreModule.forRoot(fromApp.appReducer),
     AppRoutingModule,
@@ -65,6 +69,9 @@ export function createTranslateLoader(http: HttpClient) {
     AngularFireAuthModule,
     ToastrModule.forRoot(),
     NgbModule,
+    FormsModule,
+    ReactiveFormsModule,
+    DashboardModule,
     NgxSpinnerModule,
     DeviceDetectorModule.forRoot(),
     TranslateModule.forRoot({
@@ -78,6 +85,11 @@ export function createTranslateLoader(http: HttpClient) {
       apiKey: "YOUR_GOOGLE_MAP_API_KEY"
     }),
     PerfectScrollbarModule
+  ],
+  exports: [
+    FormsModule,
+    AddDevicesComponent,
+    ListDevicesComponent
   ],
   providers: [
     AuthService,

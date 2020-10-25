@@ -17,8 +17,8 @@ export class LoginPageComponent {
   isLoginFailed = false;
 
   loginForm = new FormGroup({
-    username: new FormControl('', [Validators.required]),
-    password: new FormControl('', [Validators.required]),
+    username: new FormControl('guest@apex.com', [Validators.required]),
+    password: new FormControl('Password', [Validators.required]),
     rememberMe: new FormControl(true)
   });
 
@@ -51,7 +51,7 @@ export class LoginPageComponent {
     this.authService.signinUser(this.loginForm.value.username, this.loginForm.value.password)
       .then((res) => {
         this.spinner.hide();
-        this.router.navigate(['/dashboard/dashboard1']);
+        this.router.navigate(['/dashboard/dashboard2']);
       })
       .catch((err) => {
         this.isLoginFailed = true;

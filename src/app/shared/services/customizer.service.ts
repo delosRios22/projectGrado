@@ -126,7 +126,7 @@ export class CustomizerService {
   // sidebar BG images for Light & Dark Layout
   light_dark_bg_images = [
     {
-      src: "assets/img/sidebar-bg/01.jpg",
+      src: "assets/img/sidebar-bg/panel.jpg",
       active: false
     },
     {
